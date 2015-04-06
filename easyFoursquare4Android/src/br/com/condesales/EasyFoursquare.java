@@ -57,25 +57,13 @@ public class EasyFoursquare {
     /**
      * Logout and remove access token from shared prefs, so another user can log in later
      */
-    public int logout()
+    public void logout()
     {
-    	
-    	
-    	try
-    	{
-        SharedPreferences settings = mActivity.getSharedPreferences(
-                FoursquareConstants.SHARED_PREF_FILE, 0);
+    	SharedPreferences settings = mActivity.getSharedPreferences(FoursquareConstants.SHARED_PREF_FILE, 0);
         Editor editor = settings.edit();
         editor.putString(FoursquareConstants.ACCESS_TOKEN, "");
         editor.commit();
-        
-    	}
-    	catch(Exception ee)
-    	{
-    		return 1;
-    	}
-		return 0;	
-    }
+     }
     /**
      * Requests logged user information asynchronously.
      *
